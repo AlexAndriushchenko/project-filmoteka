@@ -72,56 +72,13 @@ function onKeyDownCloseModal(e) {
 }
 
 function cheackBtn(electFilm) {
-  const watchedArrLS = JSON.parse(localStorage.getItem(LOCALSTORAGE_WATCHED));
-  console.dir(watchedArrLS);
-  const queueArrLS = JSON.parse(localStorage.getItem(LOCALSTORAGE_QUEUE));
+  let watchedArrLS = JSON.parse(localStorage.getItem(LOCALSTORAGE_WATCHED));
+  let queveArrLS = JSON.parse(localStorage.getItem(LOCALSTORAGE_QUEUE));
   const addWatched = document.querySelector('.add__watched');
   const addQueue = document.querySelector('.add_queue');
 
-<<<<<<< Updated upstream
   addWatched.textContent = 'add to Watched';
   if (!addWatched.dataset.add) {
-=======
-  if (Array.isArray(watchedArrLS)) {
-    for (let valueFilm of watchedArrLS) {
-      if (valueFilm.id === electFilm.id) {
-        // window.alert(`This film has already been added ${textMessage}!`);
-        addWatched.textContent = 'remove from watched';
-        addWatched.dataset.inLibrary = 'true';
-        addWatched.removeEventListener(
-          'click',
-          onBtnAddClick.bind(this, electFilm, LOCALSTORAGE_WATCHED)
-        );
-        // addWatched.addEventListener(
-        //   'click',
-        //   onBtnAddClick.bind(this, electFilm, LOCALSTORAGE_WATCHED)
-        // );
-        break;
-      }
-    }
-  }
-
-  if (Array.isArray(watchedArrLS)) {
-    for (let valueFilm of queueArrLS) {
-      if (valueFilm.id === electFilm.id) {
-        // window.alert(`This film has already been added ${textMessage}!`);
-        addQueue.textContent = 'remove from queve';
-        addQueue.dataset.inLibrary = 'true';
-        addQueue.removeEventListener(
-          'click',
-          onBtnAddClick.bind(this, electFilm, LOCALSTORAGE_QUEUE)
-        );
-        // addQueue.addEventListener(
-        //   'click',
-        //   onBtnAddClick.bind(this, electFilm, LOCALSTORAGE_QUEUE)
-        // );
-        break;
-      }
-    }
-  }
-
-  if (addWatched.dataset.inLibrary !== 'true') {
->>>>>>> Stashed changes
     addWatched.addEventListener(
       'click',
       onBtnAddClick.bind(this, electFilm, LOCALSTORAGE_WATCHED)
@@ -389,7 +346,6 @@ function onReadCurrentArrayFilmLS(arr) {
 }
 
 function getFilmById(id) {
-<<<<<<< Updated upstream
   let arr = ['currentArrayFilm', LOCALSTORAGE_WATCHED, LOCALSTORAGE_QUEUE];
   for (let elem of arr) {
     try {
@@ -402,12 +358,6 @@ function getFilmById(id) {
       continue;
     }
   }
-=======
-  let arrayOfFilms = onReadCurrentArrayFilmLS();
-  console.dir(arrayOfFilms);
-  let electFilm = arrayOfFilms.find(el => el.id === Number(id));
-  return electFilm;
->>>>>>> Stashed changes
 }
 
 function renderModalWindowEng(filmEl) {
@@ -541,5 +491,3 @@ function renderModalWindowUA(filmEl) {
 
   modalWindowEl.insertAdjacentHTML('beforeend', modalRenderCod);
 }
-
-// if (currentLang === 'ukrainian') english {
