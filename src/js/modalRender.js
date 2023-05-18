@@ -438,7 +438,7 @@ function renderModalWindowUA(filmEl) {
     overview,
     genresName,
   } = filmEl;
-  // document.querySelector('.modal').lastChild.remove();
+
   let modalRenderCod = `    
         <div class="button-modal--flex">
         <picture class='button-modal__img'>
@@ -484,10 +484,6 @@ function renderModalWindowUA(filmEl) {
             </div>
         </div>
     </div>`;
-
-  // <li class="queue-item"><button class="btn__remove" data-id="${id}" type="button">Remove</button></li>
-
-  // <a target="_blank" class="imdb-btn" href="https://www.imdb.com/title/${idInIMDB}">IMDb</a>;
 
   modalWindowEl.insertAdjacentHTML('beforeend', modalRenderCod);
 }
